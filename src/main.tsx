@@ -7,6 +7,7 @@ import App from './App.tsx';
 import './index.css';
 
 WebApp.ready();
+WebApp.enableClosingConfirmation();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
