@@ -69,7 +69,7 @@ function App() {
         ],
       }}
       actionsConfiguration={{
-        twaReturnUrl: 'https://t.me/DemoDappWithTonConnectBot/demo',
+        twaReturnUrl: 'https://leslie555.github.io/TG-mini-app',
       }}
     >
       <Header />
