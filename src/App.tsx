@@ -10,7 +10,7 @@ import './App.css';
 export const Header = () => {
   return (
     <header className="">
-      <TonConnectButton style={{ marginLeft: 'auto' }} />
+      <TonConnectButton className="ml-auto" />
     </header>
   );
 };
