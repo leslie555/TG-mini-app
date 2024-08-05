@@ -1,19 +1,12 @@
 import { useState } from 'react';
-import { THEME, TonConnectButton, TonConnectUIProvider } from '@tonconnect/ui-react';
+import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 
 import reactLogo from './assets/react.svg';
+import { Address, Header, ModalControl, Wallet } from './components';
 import viteLogo from '/vite.svg';
 
 import './App.css';
-
-export const Header = () => {
-  return (
-    <header className="">
-      <TonConnectButton className="ml-auto" />
-    </header>
-  );
-};
 
 function App() {
   const [count, setCount] = useState(0);
@@ -73,6 +66,9 @@ function App() {
       }}
     >
       <Header />
+      <Address />
+      <Wallet />
+      <ModalControl />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
