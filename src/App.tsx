@@ -18,6 +18,18 @@ function App() {
       walletsListConfiguration={{
         includeWallets: [
           {
+            appName: 'tonkeeper',
+            name: 'Tonkeeper',
+            imageUrl: 'https://tonkeeper.com/assets/tonconnect-icon.png',
+            tondns: 'tonkeeper.ton',
+            aboutUrl: 'https://tonkeeper.com',
+            universalLink: 'https://app.tonkeeper.com/ton-connect',
+            deepLink: 'tonkeeper-tc://',
+            jsBridgeKey: 'tonkeeper',
+            bridgeUrl: 'https://bridge.tonapi.io/bridge',
+            platforms: ['ios', 'android', 'chrome', 'firefox', 'macos'],
+          },
+          {
             appName: 'tonwallet',
             name: 'TON Wallet',
             imageUrl: 'https://wallet.ton.org/assets/ui/qr-logo.png',
