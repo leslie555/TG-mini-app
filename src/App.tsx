@@ -3,7 +3,7 @@ import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 
 import reactLogo from './assets/react.svg';
-import { Address, Header, ModalControl, Wallet } from './components';
+import { Address, Header, ModalControl, Settings, Wallet } from './components';
 import viteLogo from '/vite.svg';
 
 import './App.css';
@@ -69,6 +69,7 @@ function App() {
       <Address />
       <Wallet />
       <ModalControl />
+      <Settings />
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
