@@ -1,4 +1,5 @@
 import { InlineButtons } from '@telegram-apps/telegram-ui';
+// import { Icon24Chat } from '@telegram-apps/telegram-ui/dist/icons/24';
 
 export function InlineButton() {
   return (

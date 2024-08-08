@@ -3,7 +3,8 @@ import { AppRoot } from '@telegram-apps/telegram-ui';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 
-import reactLogo from './assets/react.svg';
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg';
 import {
   Address,
   Header,
@@ -13,16 +14,15 @@ import {
   UserAvatar,
   Wallet,
   WalletConnectButton,
+  WalletConnectInfoWagmi,
 } from './components';
-import { Web3ModalProvider } from './configs/walletConnect';
-import viteLogo from '/vite.svg';
+import { Web3ModalProvider } from './configs/walletConnectWagmi';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
-
   return (
     <AppRoot>
       <Web3ModalProvider>
@@ -92,6 +92,7 @@ function App() {
           }}
         >
           <WalletConnectButton />
+          <WalletConnectInfoWagmi />
           <Header />
           <Address />
           <Wallet />
@@ -99,23 +100,9 @@ function App() {
           <Settings />
           <UserAvatar />
           <InlineButton />
-          <div>
-            <a href="https://vitejs.dev" target="_blank">
-              <img src={viteLogo} className="logo" alt="Vite logo" />
-            </a>
-            <a href="https://react.dev" target="_blank">
-              <img src={reactLogo} className="logo react" alt="React logo" />
-            </a>
-          </div>
-          <h1>Vite + React</h1>
           <div className="card">
             <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-            <p>
-              Edit <code>src/App.tsx</code> and save to test HMR
-            </p>
           </div>
-          <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-
           <div className="card">
             <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
               Show Alert
