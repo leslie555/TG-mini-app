@@ -1,12 +1,11 @@
 import { solana, solanaDevnet, solanaTestnet } from '@web3modal/solana/chains';
 import { createWeb3Modal, defaultSolanaConfig } from '@web3modal/solana/react';
 
+import { projectId } from './constants';
+
 export const createSolanaWalletConnectModal = () => {
   // 0. Setup chains
   const chains = [solana, solanaTestnet, solanaDevnet];
-
-  // 1. Get projectId from https://cloud.walletconnect.com
-  const projectId = '3bcf3ab334e88ac2b2cd5a60fbed0f43';
 
   // 2. Create solanaConfig
   const metadata = {

@@ -5,6 +5,7 @@ import eruda from 'eruda';
 
 import App from './App.tsx';
 // import { createSolanaWalletConnectModal } from './configs/walletConnectSolana';
+// import { createEthersWalletConnectModal } from './configs/walletConnectEthers';
 
 import './index.css';
 
@@ -12,6 +13,7 @@ eruda.init();
 WebApp.ready();
 WebApp.enableClosingConfirmation();
 // createSolanaWalletConnectModal();
+// createEthersWalletConnectModal();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
