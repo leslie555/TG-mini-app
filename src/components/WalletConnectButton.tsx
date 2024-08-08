@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button } from '@telegram-apps/telegram-ui';
 
 type Props = {
   // title: string;
@@ -8,12 +7,5 @@ type Props = {
 };
 
 export const WalletConnectButton: React.FC<Props> = () => {
-  return (
-    <>
-      <w3m-button />
-      {/* <Button mode="filled" size="s" onClick={connect}>
-        connect
-      </Button> */}
-    </>
-  );
+  return <w3m-button />;
 };
