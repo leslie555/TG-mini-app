@@ -2,13 +2,12 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { createWeb3Modal } from '@web3modal/wagmi/react';
 import { defaultWagmiConfig } from '@web3modal/wagmi/react/config';
 import { WagmiProvider } from 'wagmi';
-import { arbitrum, mainnet} from 'wagmi/chains';
+import { arbitrum, mainnet } from 'wagmi/chains';
+
+import { projectId } from './constants';
 
 // 0. Setup queryClient
 const queryClient = new QueryClient();
-
-// 1. Your WalletConnect Cloud project ID
-const projectId = '3bcf3ab334e88ac2b2cd5a60fbed0f43';
 
 // 2. Create wagmiConfig
 const metadata = {
