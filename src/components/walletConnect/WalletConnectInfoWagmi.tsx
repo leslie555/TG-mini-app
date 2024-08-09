@@ -21,6 +21,10 @@ export function WalletConnectInfoWagmi() {
         <span className="font-bold"> ChainId: </span>
         <span>{account?.chainId}</span>
       </div>
+      <div>
+        <span className="font-bold"> connector name: </span>
+        <span>{account?.connector?.name}</span>
+      </div>
     </div>
   ) : null;
 }
