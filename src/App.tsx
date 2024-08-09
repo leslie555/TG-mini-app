@@ -6,13 +6,9 @@ import WebApp from '@twa-dev/sdk';
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import {
-  Address,
-  Header,
   InlineButton,
-  ModalControl,
-  Settings,
+  TonConnect,
   UserAvatar,
-  Wallet,
   WalletConnectButton,
   WalletConnectInfoWagmi,
 } from './components';
@@ -93,11 +89,7 @@ function App() {
         >
           <WalletConnectButton />
           <WalletConnectInfoWagmi />
-          <Header />
-          <Address />
-          <Wallet />
-          <ModalControl />
-          <Settings />
+          <TonConnect />
           <UserAvatar />
           <InlineButton />
           <div className="card">
