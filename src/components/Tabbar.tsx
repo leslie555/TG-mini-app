@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Tabbar, TabbarProps } from '@telegram-apps/telegram-ui';
+import { Tabbar } from '@telegram-apps/telegram-ui';
 import { Icon28Chat } from '@telegram-apps/telegram-ui/dist/icons/28/chat';
 import { Icon28Devices } from '@telegram-apps/telegram-ui/dist/icons/28/devices';
 import { Icon28Stats } from '@telegram-apps/telegram-ui/dist/icons/28/stats';

@@ -21,7 +21,7 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
   return (
-    <AppRoot className='overflow-y-hidden'>
+    <AppRoot className='bg-red-100'>
       <Web3ModalProvider>
         <TonConnectUIProvider
           manifestUrl="https://leslie555.github.io/TG-mini-app/tonconnect-manifest.json"
