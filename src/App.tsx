@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
@@ -11,25 +12,23 @@ import {
   RainbowConnectButton,
   TonConnect,
   UserAvatar,
-  // WalletConnectButton,
+  WalletConnectButton,
   WalletConnectInfoWagmi,
 } from './components';
-import { RainbowKitModalProvider } from './configs/rainbowKit';
-
-// import { Web3ModalProvider } from './configs/walletConnectWagmi';
+import { Web3ModalProvider } from './configs/walletConnectWagmi';
 
 function App() {
   const [count, setCount] = useState(0);
   return (
     <AppRoot className="bg-red-100">
-      {/* <Web3ModalProvider>
+      <Web3ModalProvider>
         <WalletConnectButton />
-        <WalletConnectInfoWagmi />
-      </Web3ModalProvider> */}
-      <RainbowKitModalProvider>
-        <RainbowConnectButton />
-        <WalletConnectInfoWagmi />
-      </RainbowKitModalProvider>
+        <RainbowKitProvider>
+          <RainbowConnectButton />
+          <WalletConnectInfoWagmi />
+        </RainbowKitProvider>
+      </Web3ModalProvider>
+
       <TonConnectUIProvider
         manifestUrl="https://leslie555.github.io/TG-mini-app/tonconnect-manifest.json"
         uiPreferences={{ theme: THEME.DARK }}

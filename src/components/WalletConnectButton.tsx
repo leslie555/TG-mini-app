@@ -7,5 +7,5 @@ type Props = {
 };
 
 export const WalletConnectButton: React.FC<Props> = () => {
-  return <w3m-button />;
+  return <w3m-button label="connect wallet(wagmi)" />;
 };
