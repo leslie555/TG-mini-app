@@ -14,7 +14,7 @@
     "@tanstack/react-query": "^5.51.21",
     "@telegram-apps/telegram-ui": "^2.1.7",
     "@tonconnect/ui-react": "^2.0.6",
-    "@twa-dev/sdk": "^7.0.0",
+    "@twa-dev/sdk": "^7.8.0",
     "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@web3modal/ethers": "^5.0.11",
     "@web3modal/solana": "^5.0.11",

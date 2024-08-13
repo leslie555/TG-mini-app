@@ -12,6 +12,7 @@ import './index.css';
 eruda.init();
 WebApp.ready();
 WebApp.enableClosingConfirmation();
+WebApp.disableVerticalSwipes();
 // createSolanaWalletConnectModal();
 // createEthersWalletConnectModal();
 
