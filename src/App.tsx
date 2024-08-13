@@ -6,6 +6,7 @@ import WebApp from '@twa-dev/sdk';
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import {
+  AppTabbar,
   InlineButton,
   TonConnect,
   UserAvatar,
@@ -20,7 +21,7 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
   return (
-    <AppRoot>
+    <AppRoot className='overflow-y-hidden'>
       <Web3ModalProvider>
         <TonConnectUIProvider
           manifestUrl="https://leslie555.github.io/TG-mini-app/tonconnect-manifest.json"
@@ -87,19 +88,22 @@ function App() {
             twaReturnUrl: 'https://leslie555.github.io/TG-mini-app',
           }}
         >
-          <WalletConnectButton />
-          <WalletConnectInfoWagmi />
-          <TonConnect />
-          <UserAvatar />
-          <InlineButton />
-          <div className="card">
-            <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+          <div className='overflow-y-auto'>
+            <WalletConnectButton />
+            <WalletConnectInfoWagmi />
+            <TonConnect />
+            <UserAvatar />
+            <InlineButton />
+            <div className="card">
+              <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+            </div>
+            <div className="card">
+              <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
+                Show Alert
+              </button>
+            </div>
           </div>
-          <div className="card">
-            <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
-              Show Alert
-            </button>
-          </div>
+          <AppTabbar />
         </TonConnectUIProvider>
       </Web3ModalProvider>
     </AppRoot>
