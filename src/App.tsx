@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg';
 import {
   AppTabbar,
   InlineButton,
-  RainbowConnectButton,
   TonConnect,
   UserAvatar,
   WalletConnectButton,
@@ -23,10 +19,7 @@ function App() {
     <AppRoot className="bg-red-100">
       <Web3ModalProvider>
         <WalletConnectButton />
-        <RainbowKitProvider>
-          <RainbowConnectButton />
-          <WalletConnectInfoWagmi />
-        </RainbowKitProvider>
+        <WalletConnectInfoWagmi />
       </Web3ModalProvider>
 
       <TonConnectUIProvider

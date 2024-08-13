@@ -8,4 +8,3 @@ export { InlineButton } from './InlineButton';
 export { WalletConnectButton } from './WalletConnectButton';
 export { WalletConnectInfoWagmi } from './walletConnect/WalletConnectInfoWagmi';
 export { AppTabbar } from './Tabbar';
-export { RainbowConnectButton } from './RainbowConnect';
