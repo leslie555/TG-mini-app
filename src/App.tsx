@@ -91,18 +91,16 @@ function App() {
           twaReturnUrl: 'https://leslie555.github.io/TG-mini-app',
         }}
       >
-        <div className="overflow-y-auto">
-          <TonConnect />
-          <UserAvatar />
-          <InlineButton />
-          <div className="card">
-            <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-          </div>
-          <div className="card">
-            <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
-              Show Alert
-            </button>
-          </div>
+        <TonConnect />
+        <UserAvatar />
+        <InlineButton />
+        <div className="card">
+          <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        </div>
+        <div className="card">
+          <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
+            Show Alert
+          </button>
         </div>
       </TonConnectUIProvider>
 

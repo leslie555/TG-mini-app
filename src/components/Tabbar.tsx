@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { FixedLayout, Tabbar } from '@telegram-apps/telegram-ui';
+import { Tabbar } from '@telegram-apps/telegram-ui';
 import { Icon28Chat } from '@telegram-apps/telegram-ui/dist/icons/28/chat';
 import { Icon28Devices } from '@telegram-apps/telegram-ui/dist/icons/28/devices';
 import { Icon28Stats } from '@telegram-apps/telegram-ui/dist/icons/28/stats';
+
+import KEFlag from '../assets/KE.svg?react';
 
 const tabs = [
   {
@@ -20,25 +22,28 @@ const tabs = [
     Icon: Icon28Stats,
     text: 'Stats',
   },
+  {
+    id: 3,
+    Icon: KEFlag,
+    text: 'Kenya',
+  },
 ];
 
 export const AppTabbar = () => {
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
 
   return (
-    <FixedLayout>
-      <Tabbar>
-        {tabs.map(({ id, text, Icon }) => (
-          <Tabbar.Item
-            key={id}
-            text={text}
-            selected={id === currentTab}
-            onClick={() => setCurrentTab(id)}
-          >
-            <Icon />
-          </Tabbar.Item>
-        ))}
-      </Tabbar>
-    </FixedLayout>
+    <Tabbar>
+      {tabs.map(({ id, text, Icon }) => (
+        <Tabbar.Item
+          key={id}
+          text={text}
+          selected={id === currentTab}
+          onClick={() => setCurrentTab(id)}
+        >
+          <Icon width="28" height="28" />
+        </Tabbar.Item>
+      ))}
+    </Tabbar>
   );
 };
