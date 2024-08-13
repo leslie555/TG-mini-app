@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLaunchParams } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
@@ -15,8 +16,12 @@ import { Web3ModalProvider } from './configs/walletConnectWagmi';
 
 function App() {
   const [count, setCount] = useState(0);
+  const lp = useLaunchParams();
   return (
-    <AppRoot className="bg-red-100">
+    <AppRoot
+      className="bg-red-100"
+      platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+    >
       <Web3ModalProvider>
         <WalletConnectButton />
         <WalletConnectInfoWagmi />
