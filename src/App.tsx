@@ -11,7 +11,7 @@ import {
   RainbowConnectButton,
   TonConnect,
   UserAvatar,
-  WalletConnectButton,
+  // WalletConnectButton,
   WalletConnectInfoWagmi,
 } from './components';
 import { RainbowKitModalProvider } from './configs/rainbowKit';
