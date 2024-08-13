@@ -7,6 +7,8 @@ import App from './App.tsx';
 // import { createSolanaWalletConnectModal } from './configs/walletConnectSolana';
 // import { createEthersWalletConnectModal } from './configs/walletConnectEthers';
 
+import '@telegram-apps/telegram-ui/dist/styles.css';
+import '@rainbow-me/rainbowkit/styles.css';
 import './index.css';
 
 eruda.init();

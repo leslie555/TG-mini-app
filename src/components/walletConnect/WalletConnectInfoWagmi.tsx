@@ -2,7 +2,7 @@ import { useAccount } from 'wagmi';
 
 export function WalletConnectInfoWagmi() {
   const account = useAccount();
-  console.log(account);
+  console.log('account===', account);
   return account.chain ? (
     <div className="break-all bg-lime-100 p-4 text-left">
       <div>
