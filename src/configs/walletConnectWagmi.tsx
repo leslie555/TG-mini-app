@@ -11,12 +11,15 @@ import { projectId } from './constants';
 const queryClient = new QueryClient();
 const queryClientRainbow = new QueryClient();
 
+console.log('===isDev===', import.meta.env.DEV);
 // 2. Create wagmiConfig
 const metadata = {
   name: 'Leslie telegram mini app',
   description: 'AppKit Example',
   // url: 'https://web3modal.com',
-  url: 'https://leslie555.github.io/TG-mini-app/', // origin must match your domain & subdomain
+  url: import.meta.env.DEV
+    ? 'https://0b09-103-252-19-128.ngrok-free.app/TG-mini-app/'
+    : 'https://leslie555.github.io/TG-mini-app/', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/37784886'],
 };
 

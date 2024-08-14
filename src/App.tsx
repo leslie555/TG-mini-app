@@ -17,6 +17,7 @@ import { Web3ModalProvider } from './configs/walletConnectWagmi';
 function App() {
   const [count, setCount] = useState(0);
   const lp = useLaunchParams();
+  console.log('lp===', lp);
   return (
     <AppRoot
       className="bg-red-100"
