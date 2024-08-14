@@ -11,7 +11,6 @@ import { projectId } from './constants';
 const queryClient = new QueryClient();
 const queryClientRainbow = new QueryClient();
 
-console.log('===isDev===', import.meta.env.DEV);
 // 2. Create wagmiConfig
 const metadata = {
   name: 'Leslie telegram mini app',

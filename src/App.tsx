@@ -18,11 +18,15 @@ function App() {
   const [count, setCount] = useState(0);
   const lp = useLaunchParams();
   console.log('lp===', lp);
+  console.log('VITE_TEST===', import.meta.env.VITE_TEST);
   return (
     <AppRoot
       className="bg-red-100"
       platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
     >
+      <h1 className="border-4 border-dashed border-orange-300 flex justify-center font-bold text-3xl p-8 ">
+        Mode: {import.meta.env.MODE}
+      </h1>
       <Web3ModalProvider>
         <WalletConnectButton />
         <WalletConnectInfoWagmi />

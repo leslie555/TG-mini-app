@@ -10,4 +10,5 @@ export default defineConfig({
     outDir: './docs',
   },
   base: './',
+  envDir: 'root/env',
 });
