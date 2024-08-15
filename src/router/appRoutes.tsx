@@ -1,5 +1,5 @@
 import type { ComponentType, JSX } from 'react';
-import { Navigate, Route, Router, Routes } from 'react-router-dom';
+import { Navigate, Route,  Routes } from 'react-router-dom';
 
 import { Home } from '@/pages/home';
 
