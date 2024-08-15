@@ -1,3 +1,4 @@
+export { Layout } from './Layout';
 export { TonConnect } from './Header';
 export { Wallet } from './Wallet';
 export { Address } from './Address';

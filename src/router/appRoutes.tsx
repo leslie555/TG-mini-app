@@ -1,7 +1,8 @@
 import type { ComponentType, JSX } from 'react';
-import { Navigate, Route,  Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Home } from '@/pages/home';
+import { Layout } from '@/components';
+import { Chat, Home, NotFound, Stats } from '@/pages';
 
 // import { InitDataPage } from '@/pages/InitDataPage/InitDataPage';
 // import { LaunchParamsPage } from '@/pages/LaunchParamsPage/LaunchParamsPage.tsx';
@@ -16,10 +17,9 @@ interface Route {
 }
 
 const routes: Route[] = [
-  { path: '/', Component: Home },
-  // { path: '/init-data', Component: InitDataPage, title: 'Init Data' },
-  // { path: '/theme-params', Component: ThemeParamsPage, title: 'Theme Params' },
-  // { path: '/launch-params', Component: LaunchParamsPage, title: 'Launch Params' },
+  // { path: '/', Component: Home },
+  { path: './chat', Component: Chat, title: 'Init Chat' },
+  { path: './stats', Component: Stats, title: 'Stats' },
   // {
   //   path: '/ton-connect',
   //   Component: TONConnectPage,
@@ -48,10 +48,13 @@ const routes: Route[] = [
 export const AppRoutes = () => {
   return (
     <Routes>
-      {routes.map((route) => (
-        <Route key={route.path} {...route} />
-      ))}
-      <Route path="*" element={<Navigate to="/" />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        {routes.map((route) => (
+          <Route key={route.path} {...route} />
+        ))}
+      </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 };

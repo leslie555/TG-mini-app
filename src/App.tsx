@@ -6,21 +6,53 @@ import {
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
   initNavigator,
+  initUtils,
   useLaunchParams,
   useMiniApp,
+  usePopup,
+  useSettingsButton,
   useThemeParams,
   useViewport,
 } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 
-import { AppTabbar } from '@/components';
-import { AppRoutes } from '@/router/appRoutes';
+import { AppRoutes } from '@/router/AppRoutes';
 
 function App() {
+  const utils = initUtils();
+  const popup = usePopup();
   const lp = useLaunchParams();
   const miniApp = useMiniApp();
   const themeParams = useThemeParams();
   const viewport = useViewport();
+  const settingsButton = useSettingsButton();
+  settingsButton.on('click', () =>
+    popup
+      .open({
+        title: 'Hello!',
+        message: 'Here is a test message.',
+        buttons: [
+          { id: 'share', type: 'default', text: 'Share App' },
+          { id: 'cancel', type: 'destructive', text: 'Cancel' },
+        ],
+      })
+      .then((buttonId) => {
+        if (buttonId === 'share') {
+          utils.shareURL('https://t.me/leslie_57_bot/twa555', 'Fantastic app');
+        }
+        console.log(
+          buttonId === null
+            ? 'User did not click any button'
+            : `User clicked a button with ID "${buttonId}"`
+        );
+      })
+  );
+
+  useEffect(() => {
+    settingsButton.show();
+
+    return () => settingsButton.hide();
+  }, []);
 
   useEffect(() => {
     return bindMiniAppCSSVars(miniApp, themeParams);
@@ -38,27 +70,22 @@ function App() {
   // it and listen to its changes.
   const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
   const [location, reactNavigator] = useIntegration(navigator);
-
+  console.log('location===', location);
   // Don't forget to attach the navigator to allow it to control the BackButton state as well
   // as browser history.
   useEffect(() => {
     navigator.attach();
     return () => navigator.detach();
   }, [navigator]);
-  console.log('lp===', lp);
-  console.log('VITE_TEST===', import.meta.env.VITE_TEST);
   return (
-
-        <AppRoot
-          className="bg-red-100"
-          platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
-        >
-          <Router location={location} navigator={reactNavigator}>
-            <AppRoutes />
-          </Router>
-          <AppTabbar />
-        </AppRoot>
-  
+    <AppRoot
+      className="bg-red-100"
+      platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
+    >
+      <Router location={location} navigator={reactNavigator}>
+        <AppRoutes />
+      </Router>
+    </AppRoot>
   );
 }
 

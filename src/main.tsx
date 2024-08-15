@@ -1,6 +1,6 @@
 import React, { type FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import { SDKProvider } from '@telegram-apps/sdk-react';
+import  { SDKProvider } from '@telegram-apps/sdk-react';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 import eruda from 'eruda';

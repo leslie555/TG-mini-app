@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Tabbar } from '@telegram-apps/telegram-ui';
 import { Icon28Chat } from '@telegram-apps/telegram-ui/dist/icons/28/chat';
 import { Icon28Devices } from '@telegram-apps/telegram-ui/dist/icons/28/devices';
@@ -10,36 +11,44 @@ const tabs = [
   {
     id: 0,
     Icon: Icon28Devices,
-    text: 'Devices',
+    text: 'Home',
+    route: '/',
   },
   {
     id: 1,
     Icon: Icon28Chat,
     text: 'Chat',
+    route: '/chat',
   },
   {
     id: 2,
     Icon: Icon28Stats,
     text: 'Stats',
+    route: '/stats',
   },
   {
     id: 3,
     Icon: KEFlag,
     text: 'Kenya',
+    route: '/kenya',
   },
 ];
 
 export const AppTabbar = () => {
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
+  const navigate = useNavigate();
 
   return (
-    <Tabbar>
-      {tabs.map(({ id, text, Icon }) => (
+    <Tabbar className="bg-green-200">
+      {tabs.map(({ id, text, Icon, route }) => (
         <Tabbar.Item
           key={id}
           text={text}
           selected={id === currentTab}
-          onClick={() => setCurrentTab(id)}
+          onClick={() => {
+            setCurrentTab(id);
+            navigate(route);
+          }}
         >
           <Icon width="28" height="28" />
         </Tabbar.Item>

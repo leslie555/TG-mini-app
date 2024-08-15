@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  background: '#3fffbd' !important;
+}
+body {
+  background: #f295f5;
+}
