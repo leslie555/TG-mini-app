@@ -18,8 +18,8 @@ interface Route {
 
 const routes: Route[] = [
   // { path: '/', Component: Home },
-  { path: './chat', Component: Chat, title: 'Init Chat' },
-  { path: './stats', Component: Stats, title: 'Stats' },
+  { path: '/chat', Component: Chat, title: 'Init Chat' },
+  { path: '/stats', Component: Stats, title: 'Stats' },
   // {
   //   path: '/ton-connect',
   //   Component: TONConnectPage,
