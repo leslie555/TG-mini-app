@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLaunchParams } from '@telegram-apps/sdk-react';
+import { SDKProvider, useLaunchParams } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
@@ -97,17 +97,19 @@ function App() {
           twaReturnUrl: 'https://leslie555.github.io/TG-mini-app',
         }}
       >
-        <TonConnect />
-        <UserAvatar />
-        <InlineButton />
-        <div className="card">
-          <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        </div>
-        <div className="card">
-          <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
-            Show Alert
-          </button>
-        </div>
+        <SDKProvider acceptCustomStyles debug>
+          <TonConnect />
+          <UserAvatar />
+          <InlineButton />
+          <div className="card">
+            <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+          </div>
+          <div className="card">
+            <button onClick={() => WebApp.showAlert(`Hello World! Current count is ${count}`)}>
+              Show Alert
+            </button>
+          </div>
+        </SDKProvider>
       </TonConnectUIProvider>
 
       <AppTabbar />
