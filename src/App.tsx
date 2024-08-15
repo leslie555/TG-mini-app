@@ -11,8 +11,8 @@ import {
   UserAvatar,
   WalletConnectButton,
   WalletConnectInfoWagmi,
-} from './components';
-import { Web3ModalProvider } from './configs/walletConnectWagmi';
+} from '@/components';
+import { Web3ModalProvider } from '@/configs/walletConnectWagmi';
 
 function App() {
   const [count, setCount] = useState(0);
