@@ -1,5 +1,5 @@
 import type { ComponentType, JSX } from 'react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import { Layout } from '@/components';
 import { Chat, Home, NotFound, Stats } from '@/pages';
