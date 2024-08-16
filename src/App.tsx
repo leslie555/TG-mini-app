@@ -6,12 +6,12 @@ import {
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
   initNavigator,
-  initUtils,
   useLaunchParams,
   useMiniApp,
   usePopup,
   useSettingsButton,
   useThemeParams,
+  useUtils,
   useViewport,
 } from '@telegram-apps/sdk-react';
 import { AppRoot } from '@telegram-apps/telegram-ui';
@@ -19,7 +19,7 @@ import { AppRoot } from '@telegram-apps/telegram-ui';
 import { AppRoutes } from '@/router/AppRoutes';
 
 function App() {
-  const utils = initUtils();
+  const utils = useUtils();
   const popup = usePopup();
   const lp = useLaunchParams();
   const miniApp = useMiniApp();
@@ -50,7 +50,6 @@ function App() {
 
   useEffect(() => {
     settingsButton.show();
-
     return () => settingsButton.hide();
   }, []);
 
@@ -70,13 +69,18 @@ function App() {
   // it and listen to its changes.
   const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
   const [location, reactNavigator] = useIntegration(navigator);
-  console.log('location===', location);
+
   // Don't forget to attach the navigator to allow it to control the BackButton state as well
   // as browser history.
   useEffect(() => {
+    console.log('navigator===', navigator);
     navigator.attach();
     return () => navigator.detach();
   }, [navigator]);
+
+  useEffect(() => {
+    console.log('location===', location);
+  }, [location]);
   return (
     <AppRoot
       className="bg-red-100"

@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Tabbar } from '@telegram-apps/telegram-ui';
 import { Icon28Chat } from '@telegram-apps/telegram-ui/dist/icons/28/chat';
 import { Icon28Devices } from '@telegram-apps/telegram-ui/dist/icons/28/devices';
@@ -37,6 +37,15 @@ const tabs = [
 export const AppTabbar = () => {
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const currentTabPath = tabs.find((tab) => tab.id === currentTab)?.route;
+    if (currentTabPath !== location.pathname) {
+      const tabId = tabs.find((tab) => tab.route === location.pathname)?.id;
+      setCurrentTab(tabId ?? 0);
+    }
+  }, [location, currentTab]);
 
   return (
     <Tabbar className="bg-green-200">
@@ -46,6 +55,7 @@ export const AppTabbar = () => {
           text={text}
           selected={id === currentTab}
           onClick={() => {
+            if (currentTab === id) return;
             setCurrentTab(id);
             navigate(route);
           }}
