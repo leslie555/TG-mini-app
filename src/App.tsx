@@ -73,7 +73,6 @@ function App() {
   // Don't forget to attach the navigator to allow it to control the BackButton state as well
   // as browser history.
   useEffect(() => {
-    console.log('navigator===', navigator);
     navigator.attach();
     return () => navigator.detach();
   }, [navigator]);
@@ -83,7 +82,7 @@ function App() {
   }, [location]);
   return (
     <AppRoot
-      className="bg-red-100"
+      className="border-[5px] border-red-700"
       platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
     >
       <Router location={location} navigator={reactNavigator}>

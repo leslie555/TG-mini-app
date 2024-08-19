@@ -2,7 +2,7 @@ import type { ComponentType, JSX } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import { Layout } from '@/components';
-import { Chat, Home, NotFound, Stats } from '@/pages';
+import { Chat, Home, NotFound, Theme } from '@/pages';
 
 // import { InitDataPage } from '@/pages/InitDataPage/InitDataPage';
 // import { LaunchParamsPage } from '@/pages/LaunchParamsPage/LaunchParamsPage.tsx';
@@ -19,7 +19,7 @@ interface Route {
 const routes: Route[] = [
   // { path: '/', Component: Home },
   { path: '/chat', Component: Chat, title: 'Init Chat' },
-  { path: '/stats', Component: Stats, title: 'Stats' },
+  { path: '/theme', Component: Theme, title: 'Stats' },
   // {
   //   path: '/ton-connect',
   //   Component: TONConnectPage,

@@ -23,8 +23,8 @@ const tabs = [
   {
     id: 2,
     Icon: Icon28Stats,
-    text: 'Stats',
-    route: '/stats',
+    text: 'Theme',
+    route: '/theme',
   },
   {
     id: 3,
