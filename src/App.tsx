@@ -6,6 +6,7 @@ import {
   bindThemeParamsCSSVars,
   bindViewportCSSVars,
   initNavigator,
+  useBackButton,
   useLaunchParams,
   useMiniApp,
   usePopup,
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     settingsButton.show();
     return () => settingsButton.hide();
-  }, []);
+  }, [settingsButton]);
 
   useEffect(() => {
     return bindMiniAppCSSVars(miniApp, themeParams);
@@ -69,8 +70,24 @@ function App() {
 
   // Create a new application navigator and attach it to the browser history, so it could modify
   // it and listen to its changes.
-  const navigator = useMemo(() => initNavigator('app-navigation-state'), []);
+  const navigator = useMemo(
+    () =>
+      initNavigator('app-navigation-state', {
+        base: '',
+        hashMode: 'slash',
+      }),
+    []
+  );
   const [location, reactNavigator] = useIntegration(navigator);
+
+  const backButton = useBackButton();
+  useEffect(() => {
+    backButton.on('click', () => {
+      console.log('BackButton clicked.');
+      // 点击返回键直接返回到主界面
+      navigator.goTo(0, true);
+    });
+  }, [backButton, navigator]);
 
   // Don't forget to attach the navigator to allow it to control the BackButton state as well
   // as browser history.
@@ -80,7 +97,7 @@ function App() {
   }, [navigator]);
 
   useEffect(() => {
-    console.log('location===', location);
+    console.log('location===', window.location.href, location);
   }, [location]);
   return (
     <AppRoot

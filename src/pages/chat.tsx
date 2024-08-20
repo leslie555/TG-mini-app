@@ -36,6 +36,7 @@ export function Chat() {
         background: 'var(--tgui--secondary_bg_color)',
         padding: 10,
       }}
+      id="chat_leslie"
     >
       <LargeTitle className="flex justify-center">Second page</LargeTitle>
       <Cell>
@@ -103,7 +104,25 @@ export function Chat() {
             haptic.impactOccurred('heavy');
           }}
         >
-          触感测试
+          触感 impactOccurred heavy
+        </Button>
+      </Cell>
+      <Cell>
+        <Button
+          onClick={() => {
+            haptic.notificationOccurred('success');
+          }}
+        >
+          触感 成功通知
+        </Button>
+      </Cell>
+      <Cell>
+        <Button
+          onClick={() => {
+            haptic.selectionChanged();
+          }}
+        >
+          触感selectionChanged
         </Button>
       </Cell>
       <Divider />

@@ -18,7 +18,7 @@ eruda.init();
 WebApp.ready();
 WebApp.enableClosingConfirmation();
 WebApp.disableVerticalSwipes();
-WebApp.setHeaderColor('#4499ff');
+WebApp.setHeaderColor('#24292f');
 // createSolanaWalletConnectModal();
 // createEthersWalletConnectModal();
 
