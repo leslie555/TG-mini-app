@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useQRScanner, useUtils } from '@telegram-apps/sdk-react';
+import { useHapticFeedback, useQRScanner, useUtils } from '@telegram-apps/sdk-react';
 import {
   Button,
   Cell,
@@ -16,6 +16,7 @@ import { Icon20Copy } from '@telegram-apps/telegram-ui/dist/icons/20/copy';
 export function Chat() {
   const utils = useUtils();
   const scanner = useQRScanner();
+  const haptic = useHapticFeedback();
   const textRef = useRef<HTMLElement>(null);
 
   const [text, setText] = useState('');
@@ -94,6 +95,16 @@ export function Chat() {
         >
           <Icon20Copy />
         </IconButton>
+      </Cell>
+      <Divider />
+      <Cell>
+        <Button
+          onClick={() => {
+            haptic.impactOccurred('heavy');
+          }}
+        >
+          触感测试
+        </Button>
       </Cell>
       <Divider />
       <Cell className="flex flex-col items-center">

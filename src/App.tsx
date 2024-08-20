@@ -47,7 +47,6 @@ function App() {
         );
       })
   );
-
   useEffect(() => {
     settingsButton.show();
     return () => settingsButton.hide();
@@ -62,6 +61,9 @@ function App() {
   }, [themeParams]);
 
   useEffect(() => {
+    if (viewport && !viewport.isExpanded) {
+      viewport.expand();
+    }
     return viewport && bindViewportCSSVars(viewport);
   }, [viewport]);
 
