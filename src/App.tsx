@@ -97,8 +97,13 @@ function App() {
   }, [navigator]);
 
   useEffect(() => {
+    if (location.pathname === '/') {
+      backButton.hide();
+    } else {
+      backButton.show();
+    }
     console.log('location===', window.location.href, location);
-  }, [location]);
+  }, [location, backButton]);
   return (
     <AppRoot
       className="border-[5px] border-red-700"
