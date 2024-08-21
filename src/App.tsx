@@ -105,10 +105,7 @@ function App() {
     console.log('location===', window.location.href, location);
   }, [location, backButton]);
   return (
-    <AppRoot
-      className="border-[5px] border-red-700"
-      platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}
-    >
+    <AppRoot platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}>
       <Router location={location} navigator={reactNavigator}>
         <AppRoutes />
       </Router>

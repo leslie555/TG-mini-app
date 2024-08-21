@@ -48,7 +48,7 @@ export const AppTabbar = () => {
   }, [location, currentTab]);
 
   return (
-    <Tabbar className="bg-green-200">
+    <Tabbar className="pb-[20px]">
       {tabs.map(({ id, text, Icon, route }) => (
         <Tabbar.Item
           key={id}

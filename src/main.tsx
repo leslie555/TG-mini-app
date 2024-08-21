@@ -1,6 +1,6 @@
 import React, { type FC } from 'react';
 import ReactDOM from 'react-dom/client';
-import { SDKProvider } from '@telegram-apps/sdk-react';
+import { retrieveLaunchParams, SDKProvider } from '@telegram-apps/sdk-react';
 import { THEME, TonConnectUIProvider } from '@tonconnect/ui-react';
 import WebApp from '@twa-dev/sdk';
 import eruda from 'eruda';
@@ -14,8 +14,8 @@ import '@telegram-apps/telegram-ui/dist/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import './index.css';
 
-eruda.init();
 WebApp.ready();
+eruda.init();
 WebApp.enableClosingConfirmation();
 WebApp.disableVerticalSwipes();
 WebApp.setHeaderColor('#24292f');
@@ -36,6 +36,23 @@ const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
     </blockquote>
   </div>
 );
+
+function StickyApp() {
+  const lp = retrieveLaunchParams();
+
+  // Some versions of Telegram don't need the classes above.
+  if (['macos', 'tdesktop', 'weba', 'web', 'webk'].includes(lp.platform)) {
+    return;
+  }
+
+  // Expand the application.
+  // postEvent('web_app_expand');
+
+  document.body.classList.add('mobile-body');
+  document.getElementById('rootWrap')?.classList.add('mobile-wrap');
+  document.getElementById('root')?.classList.add('mobile-content');
+}
+StickyApp();
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

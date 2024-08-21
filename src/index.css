@@ -2,9 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  background: #3fffbd !important;
+.mobile-body {
+  overflow: hidden;
+  height: 100%;
 }
-body {
-  background: #f295f5;
+
+.mobile-wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background: #000;
+}
+
+.mobile-content {
+  height: calc(100% + 1px);
+  overflow-y: auto;
 }
