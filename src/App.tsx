@@ -7,7 +7,7 @@ import {
   bindViewportCSSVars,
   initNavigator,
   useBackButton,
-  useLaunchParams,
+  // useLaunchParams,
   useMiniApp,
   usePopup,
   useSettingsButton,
@@ -22,7 +22,6 @@ import { AppRoutes } from '@/router/AppRoutes';
 function App() {
   const utils = useUtils();
   const popup = usePopup();
-  const lp = useLaunchParams();
   const miniApp = useMiniApp();
   const themeParams = useThemeParams();
   const viewport = useViewport();
@@ -48,6 +47,7 @@ function App() {
         );
       })
   );
+
   useEffect(() => {
     settingsButton.show();
     return () => settingsButton.hide();
@@ -102,10 +102,12 @@ function App() {
     } else {
       backButton.show();
     }
-    console.log('location===', window.location.href, location);
+    console.log('location===', location);
+    console.log('href===', window.location.href);
   }, [location, backButton]);
+
   return (
-    <AppRoot platform={['macos', 'ios'].includes(lp.platform) ? 'ios' : 'base'}>
+    <AppRoot>
       <Router location={location} navigator={reactNavigator}>
         <AppRoutes />
       </Router>

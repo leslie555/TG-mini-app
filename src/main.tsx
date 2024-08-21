@@ -7,8 +7,6 @@ import eruda from 'eruda';
 
 import App from './App.tsx';
 import { ErrorBoundary } from './components/ErrorBoundary';
-// import { createSolanaWalletConnectModal } from './configs/walletConnectSolana';
-// import { createEthersWalletConnectModal } from './configs/walletConnectEthers';
 
 import '@telegram-apps/telegram-ui/dist/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
@@ -19,8 +17,6 @@ eruda.init();
 WebApp.enableClosingConfirmation();
 WebApp.disableVerticalSwipes();
 WebApp.setHeaderColor('#24292f');
-// createSolanaWalletConnectModal();
-// createEthersWalletConnectModal();
 
 const ErrorBoundaryError: FC<{ error: unknown }> = ({ error }) => (
   <div>
