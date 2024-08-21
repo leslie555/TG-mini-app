@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useHapticFeedback, useQRScanner, useUtils } from '@telegram-apps/sdk-react';
+import { useHapticFeedback, useInitData, useQRScanner, useUtils } from '@telegram-apps/sdk-react';
 import {
   Button,
   Cell,
@@ -7,14 +7,15 @@ import {
   IconButton,
   Info,
   Input,
-  LargeTitle,
   List,
+  Section,
   Text,
 } from '@telegram-apps/telegram-ui';
 import { Icon20Copy } from '@telegram-apps/telegram-ui/dist/icons/20/copy';
 
 export function Chat() {
   const utils = useUtils();
+  const initData = useInitData();
   const scanner = useQRScanner();
   const haptic = useHapticFeedback();
   const textRef = useRef<HTMLElement>(null);
@@ -38,7 +39,24 @@ export function Chat() {
       }}
       id="chat_leslie"
     >
-      <LargeTitle className="flex justify-center">Second page</LargeTitle>
+      <Section>
+        <Cell>
+          <Text className="font-bold">User Name:</Text>
+          {initData.user.firstName + ' ' + initData.user.lastName}
+        </Cell>
+        <Cell>
+          <Text className="font-bold">User ID:</Text>
+          {initData.user.id}
+        </Cell>
+        <Cell>
+          <Text className="font-bold">Lang Code:</Text>
+          {initData.user.languageCode}
+        </Cell>
+        <Cell>
+          <Text className="font-bold">Chat Type:</Text>
+          {initData.chatType}
+        </Cell>
+      </Section>
       <Cell>
         <Button
           onClick={() => {
