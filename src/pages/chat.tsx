@@ -39,24 +39,26 @@ export function Chat() {
       }}
       id="chat_leslie"
     >
-      <Section>
-        <Cell>
-          <Text className="font-bold">User Name:</Text>
-          {initData.user.firstName + ' ' + initData.user.lastName}
-        </Cell>
-        <Cell>
-          <Text className="font-bold">User ID:</Text>
-          {initData.user.id}
-        </Cell>
-        <Cell>
-          <Text className="font-bold">Lang Code:</Text>
-          {initData.user.languageCode}
-        </Cell>
-        <Cell>
-          <Text className="font-bold">Chat Type:</Text>
-          {initData.chatType}
-        </Cell>
-      </Section>
+      {initData?.user && (
+        <Section>
+          <Cell>
+            <Text className="font-bold">User Name: </Text>
+            {initData.user.firstName + ' ' + initData.user.lastName}
+          </Cell>
+          <Cell>
+            <Text className="font-bold">User ID: </Text>
+            {initData.user.id}
+          </Cell>
+          <Cell>
+            <Text className="font-bold">Lang Code: </Text>
+            {initData.user.languageCode}
+          </Cell>
+          <Cell>
+            <Text className="font-bold">Chat Type: </Text>
+            {initData.chatType}
+          </Cell>
+        </Section>
+      )}
       <Cell>
         <Button
           onClick={() => {
